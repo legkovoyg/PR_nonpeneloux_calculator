@@ -460,7 +460,7 @@ class Application(QMainWindow):
                         ) = v.vle(pres, temp)
                         if phase_diag_toggle_full.name == "Checked":
                             if Stable == 0:
-                                # if W > 0 and W < 1:
+                                if W > 0 and W < 1:
                                     x.append(pres)
                                     y.append(temp)
                     if x[-1:] != None:
