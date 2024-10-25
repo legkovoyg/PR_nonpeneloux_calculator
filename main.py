@@ -187,7 +187,9 @@ class Application(QMainWindow):
                 self.ui.textBrowser.append(f"Построение полной фазовой диаграммы: Нет")
             chosen_text, chosen = check_result_checkboxes()
             temp_array = np.linspace(envelope_from_temp, envelope_to_temp, temp_dots)
+            # temp_array = 293.15
             pres_array = np.linspace(envelope_from_pressure, envelope_to_pressure, pres_dots)
+            # pres_array = np.arange(0.1, 60.1, 0.1)
             # temp_array = np.linspace(200, 800, 100)
             # pres_array = np.linspace(0.1, 70, 75)
             
@@ -322,6 +324,9 @@ class Application(QMainWindow):
                         data_to_save[each_elem] = value
             data_to_save["Temp [K]"] = result_temp_array
             data_to_save["Pressure [MPa]"] = result_pres_array
+            data_to_save["Cp"] = Cp_array
+            data_to_save["Cp_w"] = Cp_w_array
+            data_to_save["Cp_l"] = Cp_l_array
             wb = Workbook()
             sheet1 = wb.active
             sheet2 = wb.create_sheet("Data")
